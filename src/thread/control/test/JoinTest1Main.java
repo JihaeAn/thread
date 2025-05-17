@@ -5,6 +5,8 @@ import static thread.util.ThreadUtils.sleep;
 
 public class JoinTest1Main {
     public static void main(String[] args) throws InterruptedException {
+        // 총 몇 초가 걸릴까?
+        // 9초
 
         Thread t1 = new Thread(new MyTask(), "t1");
         Thread t2 = new Thread(new MyTask(), "t2");
