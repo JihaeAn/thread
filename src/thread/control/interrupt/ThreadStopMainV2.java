@@ -14,6 +14,12 @@ public class ThreadStopMainV2 {
      * 참고로 interrupt()를 호출했다고 해서 즉각 InterruptedException이 발생하는 것은 아니다.
      * 오직 sleep()처럼 InterruptedException을 던지는 메서드를 호출하거나 또는 호출 중일 때 예외가 발생한다.
      */
+
+    /**
+     * 그러나 이 코드의 아쉬운 점은 인터럽트가 발생해도
+     * while (true) <- 이 부분은 항상 true기 때문에 다음 코드로 넘어간다.
+     * 그리고 sleep()을 호출하고 나서야 인터럽트가 발생하는 것이다.
+     */
     public static void main(String[] args) {
         MyTask task = new MyTask();
         Thread thread = new Thread(task, "work");
