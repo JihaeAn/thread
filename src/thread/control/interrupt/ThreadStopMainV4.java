@@ -15,7 +15,7 @@ public class ThreadStopMainV4 {
         Thread thread = new Thread(task, "work");
         thread.start();
 
-        sleep(500); // 시간 줄일게
+        sleep(100); // 시간 줄일게
         log("작업 중단 지시 thread.interrupt()");
         thread.interrupt();
         log("work 스레드 인터럽트 상태 1 = " + thread.isInterrupted());
@@ -31,9 +31,9 @@ public class ThreadStopMainV4 {
             log("work 스레드 인터럽트 상태 2 = " + Thread.currentThread().isInterrupted());
 
             try {
-                log("자원 정리");
+                log("자원 정리 시도");
                 Thread.sleep(1000);
-                log("자원 종료");
+                log("자원 정리 완료");
             } catch (InterruptedException e) {
                 log("자원 정리 실패 - 자원 정리 중 인터럽트 발생");
                 log("work 스레드 인터럽트 상태 3 = " + Thread.currentThread().isInterrupted());
